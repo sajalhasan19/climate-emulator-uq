@@ -1,0 +1,11 @@
+numpy
+scipy
+pandas
+xarray
+netcdf4
+dask
+matplotlib
+scikit-learn
+torch
+gpytorch
+jupyter
