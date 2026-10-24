@@ -14,7 +14,16 @@ ClimateBench provides NorESM2 simulation output and baseline machine learning em
 
 ## Data
 
-ClimateBench v1.0, NorESM2 output with the associated forcing data, from Zenodo (DOI 10.5281/zenodo.5196512). The data are not stored in this repository. See `data/README.md` once it exists for download instructions.
+ClimateBench v1.0.0, NorESM2 output with the associated forcing data, created by Duncan Watson-Parris and published on Zenodo (DOI 10.5281/zenodo.7064308, licence CC BY 4.0). The data are not stored in this repository: they are large, and the `data/` folder is ignored by git. To fetch the training/validation and test files (about 0.9 GB):
+
+```
+mkdir -p data && cd data
+curl -L -o train_val.tar.gz "https://zenodo.org/records/7064308/files/train_val.tar.gz?download=1"
+curl -L -o test.tar.gz "https://zenodo.org/records/7064308/files/test.tar.gz?download=1"
+md5 train_val.tar.gz test.tar.gz   # macOS; use md5sum on Linux
+```
+
+Expected MD5 checksums: `9bf0ebd9662667cc1ed78fd3eb5cad4e` (train_val) and `a09a3ddc8c24e1d6d4b1ee4be5936510` (test). A third file, `CMIP6.zip` (1.5 GB), is also in the record and is not needed unless a later step requires it.
 
 ## Plan
 
@@ -45,6 +54,8 @@ This is a reproduction plus a focused extension on one benchmark and one climate
 ## Reference
 
 Watson-Parris, D., Rao, Y., Olivie, D., Seland, O., Nowack, P., Camps-Valls, G., Stier, P., et al. (2022). ClimateBench v1.0: A benchmark for data-driven climate projections. Journal of Advances in Modeling Earth Systems.
+
+Watson-Parris, D. (2021). ClimateBench (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7064308
 
 ## Author
 
